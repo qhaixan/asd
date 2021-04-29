@@ -26,6 +26,8 @@ class StoreController extends Controller
         ->orderBy('created_at','DESC')
         ->get()
         ->unique('key');
+        //reset array index after unique filter
+        $result = array_values($result);
         return response()->json($result);
     }
 }
