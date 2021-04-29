@@ -23,5 +23,6 @@ Route::group([
     'as' => 'store.'
   ], function(){
     Route::post('/store', [StoreController::class, 'store'])->name('store');
+    Route::post('/getVal', [StoreController::class, 'getval'])->name('getVal');
     Route::get('/getAll', [StoreController::class, 'getCurrentVals'])->name('getAll');
   });
