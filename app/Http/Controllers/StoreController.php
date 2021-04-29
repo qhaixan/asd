@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Store;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class StoreController.
@@ -19,6 +21,11 @@ class StoreController extends Controller
     }
 
     public function getCurrentVals() {
-        //get all lastest value
+        $result = Store::
+        orderBy('key')
+        ->orderBy('created_at','DESC')
+        ->get()
+        ->unique('key');
+        return response()->json($result);
     }
 }
