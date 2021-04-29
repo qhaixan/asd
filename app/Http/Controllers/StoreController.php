@@ -27,7 +27,7 @@ class StoreController extends Controller
         ->get()
         ->unique('key');
         //reset array index after unique filter
-        $result = array_values($result);
+        $result = array_values((Array) $result);
         return response()->json($result);
     }
 }
